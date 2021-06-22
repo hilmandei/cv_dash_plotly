@@ -79,6 +79,7 @@ certificate = ["AIML at Letsupgrade, 2020",
 # Setting Lay-Out CV
 # Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+server = app.server
 app.layout = dbc.Container([
     dbc.Row([
         # Column 1 ====================================================================================================
@@ -272,7 +273,7 @@ app.layout = dbc.Container([
         ],width=5),
     ],className='mb-2 mt-2',justify="center"),
 
-],fluid=True)
+], fluid=True)
 
-if __name__=='__main__':
-    app.run_server(debug=True,port=8009)
+if __name__ == '__main__':
+    app.run_server(debug=True)
