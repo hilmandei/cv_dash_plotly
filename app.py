@@ -1,7 +1,15 @@
 import dash
 import dash_html_components as html
-from dash_extensions import Lottie  # pip install dash-extensions
-import dash_bootstrap_components as dbc  # pip install dash-bootstrap-components
+from dash_extensions import Lottie
+import dash_bootstrap_components as dbc
+import os, ssl
+
+if (not os.environ.get('PYTHONHTTPSVERIFY', '') and
+    getattr(ssl, '_create_unverified_context', None)):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
+server = app.server
 
 # Lottie by Emil - https://github.com/thedirtyfew/dash-extensions
 url_location = "https://assets2.lottiefiles.com/packages/lf20_7wk7kgde.json"
@@ -14,7 +22,7 @@ url_reading = "https://assets8.lottiefiles.com/packages/lf20_2wesdfa5.json"
 url_movie = "https://assets3.lottiefiles.com/private_files/lf30_xMRTDW.json"
 url_music = "https://assets4.lottiefiles.com/packages/lf20_NUz0ZU.json"
 url_github = "https://assets4.lottiefiles.com/packages/lf20_6HFXXE.json"
-options = dict(loop=True,autoplay=True,rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
+options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
 
 # DATA INPUT VARIABLES
 name = "HILMAN REVISIONERY"
@@ -78,8 +86,7 @@ certificate = ["AIML at Letsupgrade, 2020",
 
 # Setting Lay-Out CV
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
-server = app.server
+
 
 app.layout = dbc.Container([
     dbc.Row([
