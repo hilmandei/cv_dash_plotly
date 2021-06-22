@@ -13,6 +13,7 @@ url_hiking = "https://assets3.lottiefiles.com/packages/lf20_jtqgvzal.json"
 url_reading = "https://assets8.lottiefiles.com/packages/lf20_2wesdfa5.json"
 url_movie = "https://assets3.lottiefiles.com/private_files/lf30_xMRTDW.json"
 url_music = "https://assets4.lottiefiles.com/packages/lf20_NUz0ZU.json"
+url_github = "https://assets4.lottiefiles.com/packages/lf20_6HFXXE.json"
 options = dict(loop=True,autoplay=True,rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
 
 # DATA INPUT VARIABLES
@@ -32,13 +33,16 @@ pf2 = html.P("""My first jump into this field is taking a course
         experience working with real data. It makes me
         always love to learn about Data Science and its
         related field with high curiosity and passionate.""",
-             style={'text-indent': '3em',"text-align": "justify", "margin-bottom": "0px"})
+             style={'text-indent': '3em', "text-align": "justify", "margin-bottom": "0px"})
 
 location = 'Jakarta, Indonesia'
 handphone = '087885271600'
 email_adress = "hilman.revisionery@gmail.com"
 linkedin_name = 'Hilman Revisionery'
-linkedin_url = "https://www.linkedin.com/in/hilman-revisionery-48ba21191/"
+linkedin_link = "https://www.linkedin.com/in/hilman-revisionery-48ba21191/"
+git_name = 'hilmandei'
+git_url = "https://github.com/hilmandei"
+
 
 company_1 = {'position': 'DATA SCIENTIST',
              'company': "PT. ASURANSI SINARMAS | Sept 2019 - January 2021",
@@ -67,9 +71,14 @@ soft_skill = ["2 years experience in analytical skills as Proposal Engineer",
               "Enjoy working with others as a Team","Problem-Solving Mindset",
               'Passionate in learning something new']
 
-# Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
-app = dash.Dash(__name__,external_stylesheets=[dbc.themes.LUX])
+certificate = ["AIML at Letsupgrade, 2020",
+               "Statistic for Data Science at Greatlearning, 2020",
+               "Data Science for Industry at Codplex, 2020",
+               "Data Science at Purwadhika - Coding School, 2019"]
 
+# Setting Lay-Out CV
+# Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 app.layout = dbc.Container([
     dbc.Row([
         # Column 1 ====================================================================================================
@@ -95,7 +104,7 @@ app.layout = dbc.Container([
             # Contact Info
             dbc.Card([dbc.CardHeader('CONTACT INFO',style={"color": "blue","font-weight": "bold"}),
                       dbc.CardBody([
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_location,),
+                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px", url=url_location,),
                                            width="auto",align='center'),
                                    dbc.Col(location,width="auto",style={"text-align": "center"})],
                                   style={'width': '400px','height': '30px'}),
@@ -108,11 +117,18 @@ app.layout = dbc.Container([
                                    dbc.Col(email_adress,width="auto",style={"text-align": "center"})],
                                   style={'width': '400px','height': '30px'}),
                           dbc.Row([dbc.Col([Lottie(options=options,width="30px",height="30px",url=url_linkedin)],
-                                           width="auto",align='center'),
+                                           width="auto", align='center'),
                                    dbc.Col(dbc.CardLink(linkedin_name,target="_blank",
-                                                        href=linkedin_url,style={"text-align": "center"}),width="auto",
+                                                        href=linkedin_link,style={"text-align": "center"}),width="auto",
                                            align='center')],
-                                  style={'width': '450px'})])
+                                  style={'width': '450px'}),
+                          dbc.Row([dbc.Col([Lottie(options=options,width="30px",height="30px", url=url_github)],
+                                           width="auto", align='center'),
+                                   dbc.Col(dbc.CardLink(git_name,target="_blank",
+                                                        href=git_url, style={"text-align": "center"}), width="auto",
+                                           align='center')],
+                                  style={'width': '450px'})
+                      ])
                       ]),
 
             # Education
@@ -243,32 +259,15 @@ app.layout = dbc.Container([
                       dbc.Row(html.H4('Character',style={"text-decoration": "underline","margin-left": "35px",
                                                          'margin-top': '0px','margin-bottom': '0px'})),
                       dbc.CardBody([
-                          html.Ul([html.Li(item) for item in soft_skill],style={'margin-left': '7px'})
+                          html.Ul([html.Li(item) for item in soft_skill], style={'margin-left': '7px'})
 
                       ],style={'margin-left': '10px','margin-top': '5px','padding': '5px'})
                       ]),
 
             # Course and Certifications
-            dbc.Card([dbc.CardHeader('COURSE & CERTIFICATION',style={"color": "blue","font-weight": "bold"}),
-                      dbc.CardBody([
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_location),
-                                           width="auto",align='center'),
-                                   dbc.Col(location,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_phone),
-                                           width="auto",align='center'),
-                                   dbc.Col(handphone,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_email),
-                                           width="auto",align='center'),
-                                   dbc.Col(email_adress,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_linkedin),
-                                           width="auto",align='center'),
-                                   dbc.Col(dbc.CardLink(linkedin_name,target="_blank",
-                                                        href=linkedin_url,style={"text-align": "center"}),width="auto",
-                                           align='center')],
-                                  style={'width': '450px','height': '30px'})])])
+            dbc.Card([dbc.CardHeader('COURSE & CERTIFICATION', style={"color": "blue", "font-weight": "bold"}),
+                      dbc.CardBody([ html.Ul([html.Li(item) for item in certificate], style={'margin-left': '7px'})
+                          ])])
 
         ],width=5),
     ],className='mb-2 mt-2',justify="center"),
