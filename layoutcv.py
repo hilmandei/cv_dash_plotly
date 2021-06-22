@@ -77,9 +77,10 @@ certificate = ["AIML at Letsupgrade, 2020",
                "Data Science at Purwadhika - Coding School, 2019"]
 
 # Setting Lay-Out CV
-# Bootstrap themes by Ann: https://hellodash.pythonanywhere.com/theme_explorer
+
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 server = app.server
+
 app.layout = dbc.Container([
     dbc.Row([
         # Column 1 ====================================================================================================

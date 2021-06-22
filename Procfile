@@ -1,1 +1,1 @@
-web: gunicorn layout_cv:server
+web: gunicorn layoutcv:server
