@@ -225,7 +225,7 @@ app.layout = dbc.Container([
                                               style={'width': '400px', 'height': '30px','margin-bottom': '15px'}),
                                       dbc.Row([dbc.Col(
                                           dbc.CardImg(src='/assets/ml_dl.png',style={'width': '40px','height': '40px'}),
-                                          width="auto",align='center'),
+                                          width="auto", align='center'),
                                                dbc.Col("Machine Learning, Deep Learning, OpenCV", width="auto",style={"text-align": "center"})],
                                               style={'width': '430px', 'height': '30px', 'margin-bottom': '15px'}),
                                       dbc.Row([dbc.Col(dbc.CardImg(src='/assets/msoffice.png',
@@ -244,12 +244,7 @@ app.layout = dbc.Container([
 
                       ], style={'margin-left': '10px', 'margin-top': '5px', 'padding': '5px'})
 
-
-
-
                       ]),
-
-
 
             # Course and Certifications
             dbc.Card([dbc.CardHeader('COURSE & CERTIFICATION',style={"color": "blue","font-weight": "bold"}),
