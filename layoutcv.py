@@ -79,7 +79,8 @@ certificate = ["AIML at Letsupgrade, 2020",
 # Setting Lay-Out CV
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX],
-                meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=0.9'}])
+                meta_tags=[{'name': 'viewport',
+                            'content': 'width=device-width, initial-scale=0.9, maximum-scale=1.2, minimum-scale=0.7'}])
 
 server = app.server
 
@@ -90,14 +91,14 @@ app.layout = dbc.Container([
             # Photo section
             dbc.Card([
                 dbc.CardImg(src='/assets/Hilman.jpg',
-                            style={'width': '120px', 'height': '150px',"margin-left": "5%","margin-top": "1%"})
-                # 150px by 45px
+                            style={'width': '120px', 'height': '150px', "margin-left": "5%", "margin-top": "1%"})
+
             ], style={'border': 'None'}),
 
             # Name Section
             dbc.Card([
                 dbc.CardBody([
-                    html.H3(name, style={"color": "black","font-weight": "bold"}),
+                    html.H3(name, style={"color": "black", "font-weight": "bold"}),
                     html.H4(job_role, style={"color": "blue", "font-weight": "bold"})])
             ], style={'border': 'None', "margin-top": "1%", "margin-bottom": "1%"}),
 
@@ -106,48 +107,47 @@ app.layout = dbc.Container([
                       dbc.CardBody([html.P([pf1,html.Nobr(),pf2])])]),
 
             # Contact Info
-            dbc.Card([dbc.CardHeader('CONTACT INFO',style={"color": "blue","font-weight": "bold"}),
+            dbc.Card([dbc.CardHeader('CONTACT INFO',style={"color": "blue", "font-weight": "bold"}),
                       dbc.CardBody([
                           dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px", url=url_location,),
+                                           width="auto", align='center'),
+                                   dbc.Col(location, width="auto", style={"text-align": "center", })],
+                                  ),
+                          dbc.Row([dbc.Col(Lottie(options=options,width="30px", height="30px", url=url_phone),
                                            width="auto",align='center'),
-                                   dbc.Col(location,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
-                          dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_phone),
-                                           width="auto",align='center'),
-                                   dbc.Col(handphone,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
+                                   dbc.Col(handphone,width="auto", style={"text-align": "center", })],
+                                  ),
                           dbc.Row([dbc.Col(Lottie(options=options,width="30px",height="30px",url=url_email),
                                            width="auto",align='center'),
-                                   dbc.Col(email_adress,width="auto",style={"text-align": "center"})],
-                                  style={'width': '400px','height': '30px'}),
+                                   dbc.Col(email_adress,width="auto",style={"text-align": "center", })],
+                                  ),
                           dbc.Row([dbc.Col([Lottie(options=options,width="30px",height="30px",url=url_linkedin)],
                                            width="auto", align='center'),
                                    dbc.Col(dbc.CardLink(linkedin_name,target="_blank",
-                                                        href=linkedin_link,style={"text-align": "center"}),width="auto",
+                                                        href=linkedin_link,style={"text-align": "center", }),width="auto",
                                            align='center')],
-                                  style={'width': '450px'}),
+                                  ),
                           dbc.Row([dbc.Col([Lottie(options=options,width="30px",height="30px", url=url_github)],
                                            width="auto", align='center'),
-                                   dbc.Col(dbc.CardLink(git_name,target="_blank",
-                                                        href=git_url, style={"text-align": "center"}), width="auto",
+                                   dbc.Col(dbc.CardLink(git_name, target="_blank",
+                                                        href=git_url, style={"text-align": "center", }), width="auto",
                                            align='center')],
-                                  style={'width': '450px'})
+                                  )
                       ])
                       ]),
 
             # Education
-            dbc.Card([dbc.CardHeader('EDUCATION',style={"color": "blue","font-weight": "bold"}),
+            dbc.Card([dbc.CardHeader('EDUCATION', style={"color": "blue", "font-weight": "bold"}),
                       dbc.CardBody([
                           dbc.Row([
                               dbc.Col([Lottie(options=options, width="70px",height="70px", url=url_education), html.P()],
                                       width="auto", align='center', style={"margin-left": "0px"}
                                       ),
-                              dbc.Col([html.H5('TRISAKTI UNIVERSITY', style={"font-weight": "bold", "font-size": "0.8vw"}),
-                                       html.P('Petroleum Engineering | May 2010 - Oct 2014',
-                                              style={"margin-bottom": "0px", "font-size": "0.8vw"}),
-                                       html.P('GPA: 3.61 | 4.0', style={"font-size": "0.8vw"})], width="auto", align='center',
-                                      style={"margin-left": "15px", "padding":"0px"})],
-                              style={'width': '30vw', 'margin': '0px'})])]),
+                              dbc.Col([html.H5('TRISAKTI UNIVERSITY', style={"font-weight": "bold",  "text-decoration": "underline" }),
+                                       html.P('Petroleum Engineering | May 2010 - Oct 2014', style={"margin-bottom": "0px"}),
+                                       html.P('GPA: 3.61 | 4.0')], width="auto", align='center',
+                                      style={"margin-left": "15px", "padding": "0px"})],
+                              style={ 'margin': '0px'})])]),
 
             # Hobbies
             dbc.Card([dbc.CardHeader('HOBBIES',style={"font-weight": "bold",'color': "blue",}),
@@ -169,13 +169,13 @@ app.layout = dbc.Container([
                                dbc.Col("Watching Movie",width="auto",
                                        style={"text-align": "center","margin-top": "10px"})],
                               style={'width': '400px','height': '40px'}),
-                          dbc.Row([dbc.Col(Lottie(options=options,width="40px",height="40px",url=url_music),
+                          dbc.Row([dbc.Col(Lottie(options=options,width="40px",height="40px", url=url_music),
                                            width="auto",align='center'),
                                    dbc.Col("Listening Music",width="auto",
                                            style={"text-align": "center","margin-top": "10px"})],
                                   style={'width': '450px','height': '40px'})
-                      ])],style={"margin-bottom": "10px"})
-        ], width=4, style={'border': 'solid',"box-shadow": "5px 10px #888888"}),
+                      ])], style={"margin-bottom": "10px"})
+        ],  style={'border': 'solid', "box-shadow": "5px 10px #888888"}, xs=12, sm=12, md=12, lg=4, xl=4),
 
         # COLUMN 2 ====================================================================================================
         dbc.Col([
@@ -197,40 +197,40 @@ app.layout = dbc.Container([
                           dbc.Row(html.H4(company_3['position'],style={"text-decoration": "underline"})),
                           dbc.Row(html.P(company_3['company'],style={"font-weight": "bold"})),
                           dbc.Row(html.Ul([html.Li(item) for item in company_3['jobdesc']]))
-                      ],style={"padding-top": "0px","padding-bottom": '10px','padding-left': '35px'})
+                      ],style={"padding-top": "0px","padding-bottom": '10px', 'padding-left': '35px'})
                       ]),
 
             # Skill
-            dbc.Card([dbc.CardHeader('SKILLS HIGHLIGHT',style={"color": "blue","font-weight": "bold"}),
+            dbc.Card([dbc.CardHeader('SKILLS HIGHLIGHT',style={"color": "blue", "font-weight": "bold"}),
                       # Professional Skills
-                      dbc.Row(html.H4('Professional',style={"text-decoration": "underline","margin-left": "35px",
-                                                            'margin-top': '20px','margin-bottom': '0px'})),
+                      dbc.Row(html.H4('Professional', style={"text-decoration": "underline", "margin-left": "35px",
+                                                             'margin-top': '20px', 'margin-bottom': '0px'})),
                       dbc.CardBody(
                           dbc.Row([
                               # Right - Colomn 1
                               dbc.Col([
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/python2.png',style={'width': '40px','height': '40px'}),
-                                      width="auto",align='center'),
-                                           dbc.Col("Python Programming",width="auto",style={"text-align": "center"})],
-                                          style={'width': '300px','height': '30px','margin-bottom': '15px'}),
+                                      width="auto", align='center'),
+                                           dbc.Col("Python Programming", width="auto", style={"text-align": "center"})],
+                                          style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/pandas.png',style={'width': '40px','height': '40px'}),
-                                      width="auto",align='center'),
-                                           dbc.Col("Pandas Library",width="auto",style={"text-align": "center"})],
-                                          style={'width': '300px','height': '30px','margin-bottom': '15px'}),
+                                      width="auto", align='center'),
+                                           dbc.Col("Pandas Library", width="auto", style={"text-align": "center"})],
+                                          style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
-                                      dbc.CardImg(src='/assets/numpy.png',style={'width': '40px','height': '40px'}),
-                                      width="auto",align='center'),
-                                           dbc.Col("Numpy Library",width="auto",style={"text-align": "center"})],
-                                          style={'width': '300px','height': '30px','margin-bottom': '15px'}),
+                                      dbc.CardImg(src='/assets/numpy.png',style={'width': '40px', 'height': '40px'}),
+                                      width="auto", align='center'),
+                                           dbc.Col("Numpy Library", width="auto", style={"text-align": "center"})],
+                                          style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(dbc.CardImg(src='/assets/db.png',
                                                                style={'width': '40px','height': '40px'}),
                                                    width="auto",align='center'),
                                            dbc.Col("Database (Sql-NoSql)",width="auto",style={"text-align": "center"})],
-                                          style={'width': '300px','height': '30px','margin-bottom': '15px'})
+                                          style={'margin-bottom': '15px'})
 
-                              ], width='auto', style={'padding-left': '10px', 'padding-right': '20px'}),
+                              ], style={'padding-left': '10px', 'padding-right': '0px'}),
 
                               # Right - Colomn 2
                               dbc.Col([
@@ -239,24 +239,25 @@ app.layout = dbc.Container([
                                       width="auto",align='center'),
                                            dbc.Col("Matplotlib, Dash-Plotly, Tableau",width="auto",
                                                    style={"text-align": "center"})],
-                                          style={'width': '400px','height': '30px','margin-bottom': '15px'}),
+                                          style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/webscrap.png',style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
                                       dbc.Col("Web Crawling Library",width="auto",style={"text-align": "center"})],
-                                      style={'width': '400px','height': '30px','margin-bottom': '15px'}),
+                                      style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
-                                      dbc.CardImg(src='/assets/ml_dl.png',style={'width': '40px','height': '40px'}),
+                                      dbc.CardImg(src='/assets/ml_dl.png', style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
-                                      dbc.Col("Machine Learning, Deep Learning, OpenCV",width="auto",
+                                      dbc.Col("Machine Learning, Deep Learning, OpenCV", width="auto",
                                               style={"text-align": "center"})],
-                                      style={'width': '430px','height': '30px','margin-bottom': '15px'}),
-                                  dbc.Row([dbc.Col(dbc.CardImg(src='/assets/msoffice.png',
-                                                               style={'width': '40px','height': '40px'}),
-                                                   width="auto",align='center'),
-                                           dbc.Col("MS Office",width="auto",style={"text-align": "center"})],
-                                          style={'width': '400px','height': '30px','margin-bottom': '15px'})
-                              ], width='auto',style={'padding-left': '10px', 'padding-right': '0px'})],
+                                      style={'margin-bottom': '15px'}),
+                                  dbc.Row([dbc.Col(
+                                      dbc.CardImg(src='/assets/msoffice.png', style={'width': '40px','height': '40px'}),
+                                                width="auto", align='center'),
+                                      dbc.Col("MS Office", width="auto",style={"text-align": "center"})],
+                                          style={'margin-bottom': '15px'})
+                              ], style={'padding-left': '10px', 'padding-right': '0px'})],
+
                               style={'padding-left': '15px'})),
 
                       # Character Skills
@@ -273,10 +274,10 @@ app.layout = dbc.Container([
                       dbc.CardBody([ html.Ul([html.Li(item) for item in certificate], style={'margin-left': '7px'})
                           ])])
 
-        ],width=6),
-    ],className='mb-2 mt-2',justify="center"),
+        ], xs=12, sm=12, md=12, lg=6, xl=6),
+    ], className='mb-2 mt-2', justify="center"),
 
 ], fluid=True)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=9999)
