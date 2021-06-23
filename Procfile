@@ -1,1 +1,1 @@
-web: gunicorn app:server --workers 2
+web: gunicorn layoutcv:server
