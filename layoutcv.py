@@ -212,25 +212,25 @@ app.layout = dbc.Container([
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/python2.png',style={'width': '40px','height': '40px'}),
                                       width="auto", align='center'),
-                                           dbc.Col("Python Programming", width="auto", style={"text-align": "center"})],
+                                           dbc.Col("Python Programming", width="auto", style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/pandas.png',style={'width': '40px','height': '40px'}),
                                       width="auto", align='center'),
-                                           dbc.Col("Pandas Library", width="auto", style={"text-align": "center"})],
+                                           dbc.Col("Pandas Library", width="auto", style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/numpy.png',style={'width': '40px', 'height': '40px'}),
                                       width="auto", align='center'),
-                                           dbc.Col("Numpy Library", width="auto", style={"text-align": "center"})],
+                                           dbc.Col("Numpy Library", width="auto", style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(dbc.CardImg(src='/assets/db.png',
                                                                style={'width': '40px','height': '40px'}),
                                                    width="auto",align='center'),
-                                           dbc.Col("Database (Sql-NoSql)",width="auto",style={"text-align": "center"})],
+                                           dbc.Col("Database (Sql-NoSql)",width="auto",style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'})
 
-                              ], style={'padding-left': '10px', 'padding-right': '0px'}),
+                              ], width='50%', style={'padding-left': '10px', 'padding-right': '30px'}),
 
                               # Right - Colomn 2
                               dbc.Col([
@@ -238,25 +238,25 @@ app.layout = dbc.Container([
                                       dbc.CardImg(src='/assets/data_viz.png',style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
                                            dbc.Col("Matplotlib, Dash-Plotly, Tableau",width="auto",
-                                                   style={"text-align": "center"})],
+                                                   style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/webscrap.png',style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
-                                      dbc.Col("Web Crawling Library",width="auto",style={"text-align": "center"})],
+                                      dbc.Col("Web Crawling Library",width="auto",style={"text-align": "left", 'margin-top': '8px'})],
                                       style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/ml_dl.png', style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
                                       dbc.Col("Machine Learning, Deep Learning, OpenCV", width="auto",
-                                              style={"text-align": "center"})],
+                                              style={"text-align": "left", 'margin-top': '8px'})],
                                       style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/msoffice.png', style={'width': '40px','height': '40px'}),
                                                 width="auto", align='center'),
-                                      dbc.Col("MS Office", width="auto",style={"text-align": "center"})],
+                                      dbc.Col("MS Office", width="auto",style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'})
-                              ], style={'padding-left': '10px', 'padding-right': '0px'})],
+                              ], width='50%', style={'padding-left': '10px', 'padding-right': '0px'})],
 
                               style={'padding-left': '15px'})),
 
@@ -266,7 +266,7 @@ app.layout = dbc.Container([
                       dbc.CardBody([
                           html.Ul([html.Li(item) for item in soft_skill], style={'margin-left': '7px'})
 
-                      ],style={'margin-left': '10px','margin-top': '5px','padding': '5px'})
+                      ],style={'margin-left': '10px', 'margin-top': '5px','padding': '5px'})
                       ]),
 
             # Course and Certifications
