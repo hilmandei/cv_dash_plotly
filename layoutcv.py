@@ -235,9 +235,9 @@ app.layout = dbc.Container([
                               # Right - Colomn 2
                               dbc.Col([
                                   dbc.Row([dbc.Col(
-                                      dbc.CardImg(src='/assets/data_viz.png',style={'width': '40px','height': '40px'}),
+                                      dbc.CardImg(src='/assets/data_viz.png', style={'width': '40px','height': '40px'}),
                                       width="auto",align='center'),
-                                           dbc.Col("Matplotlib, Dash-Plotly, Tableau",width="auto",
+                                           dbc.Col("Matplotlib, Dash-Plotly, Tableau", width="auto",
                                                    style={"text-align": "left", 'margin-top': '8px'})],
                                           style={'margin-bottom': '15px'}),
                                   dbc.Row([dbc.Col(
