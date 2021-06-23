@@ -79,8 +79,10 @@ certificate = ["AIML at Letsupgrade, 2020",
 # Setting Lay-Out CV
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX],
+                title='CV_HilmanR',
+                update_title='Wait on Loading...,',
                 meta_tags=[{'name': 'viewport',
-                            'content': 'width=device-width, initial-scale=0.9, maximum-scale=1.2, minimum-scale=0.7'}])
+                            'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.7'}])
 
 server = app.server
 
