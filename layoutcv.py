@@ -80,7 +80,7 @@ certificate = ["AIML at Letsupgrade, 2020",
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX],
                 meta_tags=[{'name': 'viewport',
-                            'content': 'width=device-width, initial-scale=0.9, maximum-scale=1.2, minimum-scale=0.7'}])
+                            'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.7'}])
 
 server = app.server
 
@@ -141,12 +141,12 @@ app.layout = dbc.Container([
                       dbc.CardBody([
                           dbc.Row([
                               dbc.Col([Lottie(options=options, width="70px",height="70px", url=url_education), html.P()],
-                                      width="auto", align='center', style={"margin-left": "0px"}
+                                      width="auto", align='center', style={"margin-left": "0px", "padding-left": "0px"}
                                       ),
                               dbc.Col([html.H5('TRISAKTI UNIVERSITY', style={"font-weight": "bold",  "text-decoration": "underline" }),
                                        html.P('Petroleum Engineering | May 2010 - Oct 2014', style={"margin-bottom": "0px"}),
                                        html.P('GPA: 3.61 | 4.0')], width="auto", align='center',
-                                      style={"margin-left": "15px", "padding": "0px"})],
+                                      style={"margin-left": "0px", "padding": "0px"})],
                               style={ 'margin': '0px'})])]),
 
             # Hobbies
