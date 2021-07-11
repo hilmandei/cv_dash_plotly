@@ -168,12 +168,12 @@ app.layout = dbc.Container([
                           dbc.Row(
                               [dbc.Col(Lottie(options=options,width="40px",height="40px",url=url_movie),width="auto",
                                        align='center'),
-                               dbc.Col("Watching Movie",width="auto",
+                               dbc.Col("Watching Movie", width="auto",
                                        style={"text-align": "center","margin-top": "10px"})],
                               style={'width': '400px','height': '40px'}),
                           dbc.Row([dbc.Col(Lottie(options=options,width="40px",height="40px", url=url_music),
                                            width="auto",align='center'),
-                                   dbc.Col("Listening Music",width="auto",
+                                   dbc.Col("Listening to Music",width="auto",
                                            style={"text-align": "center","margin-top": "10px"})],
                                   style={'width': '450px','height': '40px'})
                       ])], style={"margin-bottom": "10px"})
@@ -263,7 +263,7 @@ app.layout = dbc.Container([
                               style={'padding-left': '15px'})),
 
                       # Character Skills
-                      dbc.Row(html.H4('Character',style={"text-decoration": "underline","margin-left": "35px",
+                      dbc.Row(html.H4('Character', style={"text-decoration": "underline","margin-left": "35px",
                                                          'margin-top': '0px','margin-bottom': '0px'})),
                       dbc.CardBody([
                           html.Ul([html.Li(item) for item in soft_skill], style={'margin-left': '7px'})
