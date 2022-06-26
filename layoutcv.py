@@ -1,13 +1,13 @@
 import dash
-from dash import html as html
 from dash_extensions import Lottie
 import dash_bootstrap_components as dbc
+from dash import Dash, dcc, html, Input, Output
 
 url_location = "https://assets2.lottiefiles.com/packages/lf20_7wk7kgde.json"
 url_email = "https://assets1.lottiefiles.com/packages/lf20_tsdhbs.json"
 url_phone = "https://assets7.lottiefiles.com/packages/lf20_Vx5c3M/13_phone.json"
 url_linkedin = "https://assets5.lottiefiles.com/private_files/lf30_USzW1X.json"
-url_education = "https://assets4.lottiefiles.com/private_files/lf30_ufoa7nnt.json"
+url_education = "https://assets1.lottiefiles.com/packages/lf20_DMgKk1.json"
 url_hiking = "https://assets3.lottiefiles.com/packages/lf20_jtqgvzal.json"
 url_reading = "https://assets8.lottiefiles.com/packages/lf20_2wesdfa5.json"
 url_movie = "https://assets3.lottiefiles.com/private_files/lf30_xMRTDW.json"
@@ -46,10 +46,12 @@ git_url = "https://github.com/hilmandei"
 company_ = {'position': 'DATA SCIENTIST',
             'company': "PT. ILMUONE DATA | August 2021 - Present",
             'jobdesc': [
-              "Developing a small app for predicting retinal eye in order to help a doctor for their research.",
-              "Developing end to end a a small app for analyzing text in cloud environment.",
-              "Analyzing a client data to extract some insights from it.",
-              "Analyzing a client's problem to help them maintaining their objective.",
+              "Exploring and understanding an ideas for client needs.",  # 1
+              "Developing and deploying a small app for predicting retinal eye "
+              "in order to help a doctor for their research.",  # 2
+              "Developing and deploying end to end a a small app for analyzing text in cloud environment.",  # 3
+              "Analyzing a client's data to extract some insights from it.",  # 4
+              "Analyzing a client's problem to help them maintaining their objective.",  # 5
              ]}
 
 company_1 = {'position': 'DATA SCIENTIST',
@@ -73,7 +75,7 @@ company_2 = {'position': 'PROJECT ENGINEER',
 company_3 = {'position': 'PROPOSAL ENGINEER',
              'company': "PT. TRUBA JAYA ENGINEERING | June 2015 - June 2017",
              'jobdesc': ["Make an estimation and calculation for mechanical projects.",
-                         "Preparing all the required bidding doc for Mechanical project."]}
+                         "Preparing all the required bidding docs for Mechanical project."]}
 
 soft_skill = ["2 years experience in analytical skills as Proposal Engineer",
               "Enjoy working with others as a Team", "Problem-Solving Mindset", "Self-Developing Mindset",
@@ -86,11 +88,11 @@ certificate = ["AIML at Letsupgrade, 2020",
 
 # Setting Lay-Out CV
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX],
-                title='CV_HilmanR',
-                update_title='Wait on Loading...',
-                meta_tags=[{'name': 'viewport',
-                            'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.7'}])
+app = Dash(__name__, external_stylesheets=[dbc.themes.LUX],
+           title='CV_HilmanR',
+           update_title='Wait on Loading...',
+           meta_tags=[{'name': 'viewport',
+                       'content': 'width=device-width, initial-scale=1.0, maximum-scale=1.2, minimum-scale=0.7'}])
 
 server = app.server
 
@@ -111,6 +113,13 @@ app.layout = dbc.Container([
                     html.H3(name, style={"color": "black", "font-weight": "bold"}),
                     html.H4(job_role, style={"color": "blue", "font-weight": "bold"})])
             ], style={'border': 'None', "margin-top": "1%", "margin-bottom": "1%"}),
+
+            # Download as PDF
+            html.Div([
+                html.A("Save as PDF", id="btn_image", n_clicks=0,
+                       style={"text-decoration": "underline", "color": "black"}),
+                dcc.Download(id="download-image")
+            ]),
 
             # Personal Profile
             dbc.Card([dbc.CardHeader('PERSONAL PROFILE', style={"color": "blue", "font-weight": "bold"}),
@@ -150,16 +159,18 @@ app.layout = dbc.Container([
             dbc.Card([dbc.CardHeader('EDUCATION', style={"color": "blue", "font-weight": "bold"}),
                       dbc.CardBody([
                           dbc.Row([
-                              dbc.Col([Lottie(options=options, width="60px", height="60px", url=url_education),
+                              dbc.Col([Lottie(options=options, width="90px", height="95px", url=url_education),
                                        html.P()],
-                                      width="auto", align='center', style={"margin-left": "0px", "padding-left": "0px"}
+                                      width="auto", align='center', style={"margin-right": "10px", "padding-left": "0px"}
                                       ),
                               dbc.Col([html.H5('TRISAKTI UNIVERSITY', style={"font-weight": "bold",
                                                                              "text-decoration": "underline"}),
-                                       html.P('Petroleum Engineering | May 2010 - Oct 2014',
+                                       html.P('Petroleum Engineering',
+                                              style={"margin-bottom": "0px"}),
+                                       html.P('May 2010 - Oct 2014',
                                               style={"margin-bottom": "0px"}),
                                        html.P('GPA: 3.61 | 4.0')], width="auto", align='center',
-                                      style={"margin-left": "0px", "padding": "0px"})],
+                                      style={"margin": "0px", "padding": "0px"})], align="center",
                                   style={'margin': '0px'})],
                       style={"padding-right": "0px", "padding-left": "10px"})]),
 
@@ -174,7 +185,7 @@ app.layout = dbc.Container([
                           dbc.Row(
                               [dbc.Col(Lottie(options=options, width="40px", height="40px", url=url_reading),
                                        width="auto", align='center'),
-                               dbc.Col("Reading Book", width="auto",
+                               dbc.Col("Reading Books/Articles", width="auto",
                                        style={"text-align": "center", "margin-top": "10px"})],
                               style={'width': '400px', 'height': '40px'}),
                           dbc.Row(
@@ -207,25 +218,25 @@ app.layout = dbc.Container([
             dbc.Card([dbc.CardHeader('WORK EXPERIENCES', style={"color": "blue", "font-weight": "bold"}),
                       dbc.CardBody([
                           dbc.Row(html.H4(company_['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_['company'], style={"font-weight": "bold"})),
+                          dbc.Row(html.P(company_['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
                           dbc.Row(html.Ul([html.Li(item) for item in company_['jobdesc']]))
                       ], style={"padding-bottom": '10px', 'padding-left': '35px'}),
 
                       dbc.CardBody([
                           dbc.Row(html.H4(company_1['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_1['company'], style={"font-weight": "bold"})),
+                          dbc.Row(html.P(company_1['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
                           dbc.Row(html.Ul([html.Li(item) for item in company_1['jobdesc']]))
                       ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'}),
 
                       dbc.CardBody([
                           dbc.Row(html.H4(company_2['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_2['company'], style={"font-weight": "bold"})),
+                          dbc.Row(html.P(company_2['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
                           dbc.Row(html.Ul([html.Li(item) for item in company_2['jobdesc']]))
                       ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'}),
 
                       dbc.CardBody([
                           dbc.Row(html.H4(company_3['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_3['company'], style={"font-weight": "bold"})),
+                          dbc.Row(html.P(company_3['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
                           dbc.Row(html.Ul([html.Li(item) for item in company_3['jobdesc']]))
                       ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'})
                       ]),
@@ -272,9 +283,16 @@ app.layout = dbc.Container([
                               dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/ml_dl.png', style={'width': '40px', 'height': '40px'}),
                                       width="auto", align='center'),
-                                      dbc.Col("Machine Learning, Deep Learning, OpenCV", width="auto",
+                                      dbc.Col("Machine Learning, Deep Learning Library", width="auto",
                                               style={"text-align": "left", 'margin-top': '8px'})],
                                       style={'margin-bottom': '10px'}),
+                              dbc.Row([dbc.Col(
+                                  dbc.CardImg(src='/assets/gcp.png', style={'width': '40px', 'height': '40px'}),
+                                  width="auto", align='center'),
+                                  dbc.Col("Cloud Platform", width="auto", style={"text-align": "left",
+                                                                                 'margin-top': '8px'})],
+                                  style={'margin-bottom': '10px'}),
+
                               dbc.Row([dbc.Col(
                                       dbc.CardImg(src='/assets/msoffice.png', style={'width': '40px',
                                                                                      'height': '40px'}),
@@ -282,12 +300,7 @@ app.layout = dbc.Container([
                                       dbc.Col("MS Office", width="auto", style={"text-align": "left",
                                                                                 'margin-top': '8px'})],
                                       style={'margin-bottom': '10px'}),
-                              dbc.Row([dbc.Col(
-                                      dbc.CardImg(src='/assets/gcp.png', style={'width': '40px', 'height': '40px'}),
-                                      width="auto", align='center'),
-                                      dbc.Col("Cloud Platform", width="auto", style={"text-align": "left",
-                                                                                     'margin-top': '8px'})],
-                                      style={'margin-bottom': '10px'}),
+
 
                           ], style={'padding-left': '15px'})),
 
@@ -302,6 +315,18 @@ app.layout = dbc.Container([
     ], className='mb-2 mt-2', justify="center"),
 
 ], fluid=True)
+
+
+@app.callback(
+    Output("download-image", "data"),
+    Input("btn_image", "n_clicks"),
+    prevent_initial_call=True)
+def func(n_clicks):
+    if n_clicks == 0:
+        return dash.no_update
+
+    return dcc.send_file("assets/cv_hilman.pdf")
+
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=8787)
