@@ -117,7 +117,7 @@ app.layout = dbc.Container([
             # Download as PDF
             html.Div([
                 html.A("Save as PDF", id="btn_image", n_clicks=0,
-                       style={"text-decoration": "underline", "color": "black"}),
+                       style={"text-decoration": "underline", "color": "black", "font-size": "14px"}),
                 dcc.Download(id="download-image")
             ]),
 
