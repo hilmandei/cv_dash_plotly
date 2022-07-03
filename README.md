@@ -4,4 +4,4 @@
 - A good way to get started in dash-plotly https://www.youtube.com/channel/UCqBFsuAz41sqWcFjZkqmJqQ
 - And a good reference to build a cv https://github.com/JoMiguelSantos/my-interactive-cv#my-interactive-cv
 
-Please visit my herokuapp for this simple CV https://cv-hilman.herokuapp.com
+Please visit my herokuapp for this simple CV https://cv-hilman-ma73t4tguq-et.a.run.app/
