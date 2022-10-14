@@ -46,12 +46,15 @@ git_url = "https://github.com/hilmandei"
 company_ = {'position': 'DATA SCIENTIST',
             'company': "PT. ILMUONE DATA | August 2021 - Present",
             'jobdesc': [
-              "Exploring and understanding an ideas for client needs.",  # 1
-              "Developing and deploying a small app for predicting retinal eye "
-              "in order to help a doctor for their research.",  # 2
-              "Developing and deploying end to end a a small app for analyzing text in cloud environment.",  # 3
-              "Analyzing a client's data to extract some insights from it.",  # 4
-              "Analyzing a client's problem to help them maintaining their objective.",  # 5
+              "Exploring and understanding an ideas for client needs, like improving their engagement, etc.",  # 1
+              "Developing and deploying a small app for predicting retinal eye's vessel"
+              "in order to help a doctor for their research by using computer vision method.",  # 2
+              "Developing and deploying end to end a a small app (Dashboard) for analyzing text using "
+              "sentiment analysis and entity recognition model in cloud environment.",  # 3
+              "Exploring the recommendation system by crawling the web and extracting the information from it,"
+              "then find similarities between articles",  # 4
+              "Maintaining the existing project from one biggest online marketplace client, "
+              "then troubleshooting if any error occurs",  # 5
              ]}
 
 company_1 = {'position': 'DATA SCIENTIST',
@@ -65,7 +68,8 @@ company_1 = {'position': 'DATA SCIENTIST',
               """Crawling data to find the occurrence liability (i.e. vehicle accident or natural disaster in news, 
               blacklist person, measure the shortest distance of firefighters to risk location, etc.)""",
               """Developing machine learning to predict News Classification, that meets with Insurance coverage.""",
-              """Developing OCR system for handwritten digit based on form claim."""]}
+              """Developing OCR system for handwritten digit based on form claim, and improving 
+              the accuracy by using encoder method"""]}
 
 company_2 = {'position': 'PROJECT ENGINEER',
              'company': "PT. TRUBA JAYA ENGINEERING | June 2017 - March 2019",
