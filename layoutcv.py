@@ -44,7 +44,7 @@ git_url = "https://github.com/hilmandei"
 
 
 company_ = {'position': 'DATA SCIENTIST',
-            'company': "PT. ILMUONE DATA | August 2021 - Present",
+            'company': "PT. ILMUONE DATA | August 2021 - October 2022",
             'jobdesc': [
               "Exploring and understanding an ideas for client needs, like improving their engagement, etc.",  # 1
               "Developing and deploying a small app for predicting retinal eye's vessel"
@@ -81,6 +81,13 @@ company_3 = {'position': 'PROPOSAL ENGINEER',
              'jobdesc': ["Make an estimation and calculation for mechanical projects.",
                          "Preparing all the required bidding docs for Mechanical project."]}
 
+company_4 = {'position': 'DATA SCIENTIST',
+             'company': "Tata Consultancy Services Indonesia | October 2022 - Present",
+             'jobdesc': ["Understanding the business case of lead generation of Telco Industry",
+                         "Exploring variable for making classification model.",
+                         "Performing cleaning and feature engineering to the Data",
+                         "Exploring the Model to solve imbalanced classification problem."]}
+
 soft_skill = ["2 years experience in analytical skills as Proposal Engineer",
               "Enjoy working with others as a Team", "Problem-Solving Mindset", "Self-Developing Mindset",
               'Passionate in learning something new']
@@ -90,6 +97,19 @@ certificate = ["AIML at Letsupgrade, 2020",
                "Data Science for Industry at Codplex, 2020",
                "Data Science at Purwadhika - Coding School, 2019"]
 
+list_of_company = [company_4, company_, company_1, company_2, company_3]
+list_of_exp = [
+                dbc.CardHeader('WORK EXPERIENCES', style={"color": "blue", "font-weight": "bold"})
+              ]
+
+for comp in list_of_company:
+    create = dbc.CardBody([
+            dbc.Row(html.H4(comp['position'], style={"text-decoration": "underline"})),
+            dbc.Row(html.P(comp['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
+            dbc.Row(html.Ul([html.Li(item) for item in comp['jobdesc']]))
+            ], style={"padding-bottom": '10px', 'padding-left': '35px'})
+
+    list_of_exp.append(create)
 # Setting Lay-Out CV
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.LUX],
@@ -213,37 +233,19 @@ app.layout = dbc.Container([
 
                       ]),
 
+            # Course and Certifications
+            dbc.Card([dbc.CardHeader('COURSE & CERTIFICATION', style={"color": "blue", "font-weight": "bold"}),
+                      dbc.CardBody([html.Ul([html.Li(item) for item in certificate], style={'margin-left': '7px'})])])
+
 
         ],  style={'border': 'solid', "box-shadow": "5px 10px #888888"}, xs=12, sm=12, md=12, lg=4, xl=4),
 
         # COLUMN 2 ====================================================================================================
         dbc.Col([
             # Experience
-            dbc.Card([dbc.CardHeader('WORK EXPERIENCES', style={"color": "blue", "font-weight": "bold"}),
-                      dbc.CardBody([
-                          dbc.Row(html.H4(company_['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
-                          dbc.Row(html.Ul([html.Li(item) for item in company_['jobdesc']]))
-                      ], style={"padding-bottom": '10px', 'padding-left': '35px'}),
-
-                      dbc.CardBody([
-                          dbc.Row(html.H4(company_1['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_1['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
-                          dbc.Row(html.Ul([html.Li(item) for item in company_1['jobdesc']]))
-                      ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'}),
-
-                      dbc.CardBody([
-                          dbc.Row(html.H4(company_2['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_2['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
-                          dbc.Row(html.Ul([html.Li(item) for item in company_2['jobdesc']]))
-                      ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'}),
-
-                      dbc.CardBody([
-                          dbc.Row(html.H4(company_3['position'], style={"text-decoration": "underline"})),
-                          dbc.Row(html.P(company_3['company'], style={"font-weight": "bold", 'color': "#0000b3"})),
-                          dbc.Row(html.Ul([html.Li(item) for item in company_3['jobdesc']]))
-                      ], style={"padding-top": "0px", "padding-bottom": '10px', 'padding-left': '35px'})
-                      ]),
+            dbc.Card(
+                     list_of_exp
+                    ),
 
             # Skill
             dbc.Card([dbc.CardHeader('SKILLS HIGHLIGHT', style={"color": "blue", "font-weight": "bold"}),
@@ -311,10 +313,6 @@ app.layout = dbc.Container([
 
                       ]),
 
-            # Course and Certifications
-            dbc.Card([dbc.CardHeader('COURSE & CERTIFICATION', style={"color": "blue", "font-weight": "bold"}),
-                      dbc.CardBody([html.Ul([html.Li(item) for item in certificate], style={'margin-left': '7px'})])])
-
         ], xs=12, sm=12, md=12, lg=6, xl=6),
     ], className='mb-2 mt-2', justify="center"),
 
@@ -329,7 +327,7 @@ def func(n_clicks):
     if n_clicks == 0:
         return dash.no_update
 
-    return dcc.send_file("assets/cv_hilman.pdf")
+    return dcc.send_file("assets/cv_hilman_dec2022.pdf")
 
 
 if __name__ == '__main__':
