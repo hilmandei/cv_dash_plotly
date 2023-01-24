@@ -27,9 +27,8 @@ pf1 = html.P("""Start as Proposal Engineer for 2 years, it makes me
              style={'text-indent': '3em', "text-align": "justify", "margin-bottom": "0px"})
 
 pf2 = html.P("""My first jump into this field is taking a course
-        in Data Science. Now I’ve worked as Data
-        Scientist for 1 and a half years, and get
-        experience working with real data. It makes me
+        in Data Science and also read some books about Data Science. Now I’ve worked as Data
+        Scientist, and get experience working with real data. It makes me
         always love to learn about Data Science and its
         related field with high curiosity and passionate.""",
              style={'text-indent': '3em', "text-align": "justify", "margin-bottom": "0px"})
@@ -83,10 +82,12 @@ company_3 = {'position': 'PROPOSAL ENGINEER',
 
 company_4 = {'position': 'DATA SCIENTIST',
              'company': "Tata Consultancy Services Indonesia | October 2022 - Present",
-             'jobdesc': ["Understanding the business case of lead generation of Telco Industry",
+             'jobdesc': ["Understanding the business case of lead generation in Telco Industry",
                          "Exploring variable for making classification model.",
-                         "Performing cleaning and feature engineering to the Data",
-                         "Exploring the Model to solve imbalanced classification problem."]}
+                         "Performing cleaning and feature engineering from User Data",
+                         "Exploring the Model to solve imbalanced classification problem.",
+                         "Maintaining the Client expectation relates to the project.",
+                         ]}
 
 soft_skill = ["2 years experience in analytical skills as Proposal Engineer",
               "Enjoy working with others as a Team", "Problem-Solving Mindset", "Self-Developing Mindset",
@@ -139,11 +140,11 @@ app.layout = dbc.Container([
             ], style={'border': 'None', "margin-top": "1%", "margin-bottom": "1%"}),
 
             # Download as PDF
-            html.Div([
-                html.A("Save as PDF", id="btn_image", n_clicks=0,
-                       style={"text-decoration": "underline", "color": "black", "font-size": "14px"}),
-                dcc.Download(id="download-image")
-            ]),
+            # html.Div([
+            #     html.A("Save as PDF", id="btn_image", n_clicks=0,
+            #            style={"text-decoration": "underline", "color": "black", "font-size": "14px"}),
+            #     dcc.Download(id="download-image")
+            # ]),
 
             # Personal Profile
             dbc.Card([dbc.CardHeader('PERSONAL PROFILE', style={"color": "blue", "font-weight": "bold"}),
@@ -293,7 +294,7 @@ app.layout = dbc.Container([
                                               style={"text-align": "left", 'margin-top': '8px'})],
                                       style={'margin-bottom': '10px'}),
                               dbc.Row([dbc.Col(
-                                  dbc.CardImg(src='/assets/gcp.png', style={'width': '40px', 'height': '40px'}),
+                                  dbc.CardImg(src='/assets/cloud.png', style={'width': '40px', 'height': '40px'}),
                                   width="auto", align='center'),
                                   dbc.Col("Cloud Platform", width="auto", style={"text-align": "left",
                                                                                  'margin-top': '8px'})],
@@ -319,15 +320,15 @@ app.layout = dbc.Container([
 ], fluid=True)
 
 
-@app.callback(
-    Output("download-image", "data"),
-    Input("btn_image", "n_clicks"),
-    prevent_initial_call=True)
-def func(n_clicks):
-    if n_clicks == 0:
-        return dash.no_update
-
-    return dcc.send_file("assets/cv_hilman_dec2022.pdf")
+# @app.callback(
+#     Output("download-image", "data"),
+#     Input("btn_image", "n_clicks"),
+#     prevent_initial_call=True)
+# def func(n_clicks):
+#     if n_clicks == 0:
+#         return dash.no_update
+#
+#     return dcc.send_file("assets/cv_hilman_dec2022.pdf")
 
 
 if __name__ == '__main__':
